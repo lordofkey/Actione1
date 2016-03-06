@@ -1,10 +1,10 @@
 #数据整理部分
 library("xlsx", lib.loc="~/R/win-library/3.2")
-workdir = 'D:\\日常事务\\呼吸丙酮实验统计分析\\data'
+workdir = 'data'
 alldata = as.data.frame(matrix(numeric(0),ncol=15))
 colnames(alldata) = c('pNo','type','Age','Gender','Weight','Height','No','Acetone1','Acetone2','Acetone3','Acetone4','Acetone5','Acetone6','BGL','HBA')
 index = 0
-type = 0                                                   #类型
+type = 0                                                 #类型
 Acetone1 = NA
 Acetone2 = NA
 Acetone3 = NA
@@ -13,7 +13,7 @@ Acetone5 = NA
 Acetone6 = NA
 for (i in 1:5)
 {
-  ildata = read.xlsx(paste0(workdir,'\\2015 健康人.xls',collapse = NULL),colClasses = c(NA,NA,NA,'numeric','numeric','numeric','numeric','numeric',NA,'numeric','numeric','numeric','numeric','numeric','numeric'),sheetIndex = i)
+  ildata = read.xlsx(paste0(workdir,'/2015 健康人.xls',collapse = NULL),colClasses = c(NA,NA,NA,'numeric','numeric','numeric','numeric','numeric',NA,'numeric','numeric','numeric','numeric','numeric','numeric'),sheetIndex = i)
   Gender = ildata[2,9]                                     #性别
   Age = ildata[2,10]                                       #年龄
   Weight = ildata[2,13]                                    #体重
